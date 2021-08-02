@@ -26,7 +26,6 @@ function LoginForm() {
 
   return (
     <form className="formPanel" onSubmit={login}>
-      <h2>Login</h2>
       {errors.loginMessage && (
         <h3 className="alert" role="alert">
           {errors.loginMessage}
@@ -36,6 +35,7 @@ function LoginForm() {
         <label htmlFor="username">
           Username:
           <input
+            class="nes-input"
             type="text"
             name="username"
             required
@@ -48,6 +48,7 @@ function LoginForm() {
         <label htmlFor="password">
           Password:
           <input
+            class="nes-input"
             type="password"
             name="password"
             required
@@ -57,7 +58,7 @@ function LoginForm() {
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Log In" />
+        <input className="nes-btn is-primary" type="submit" name="submit" value="Log In" />
       </div>
     </form>
   );
