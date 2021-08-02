@@ -7,10 +7,11 @@ function RegisterPage() {
   const history = useHistory();
 
   return (
-    <div>
-      <RegisterForm />
+    <section>
+      <section class="nes-container">
+        <RegisterForm />
+      </section>
 
-      <center>
         <button
           type="button"
           className="btn btn_asLink"
@@ -20,8 +21,7 @@ function RegisterPage() {
         >
           Login
         </button>
-      </center>
-    </div>
+    </section>
   );
 }
 

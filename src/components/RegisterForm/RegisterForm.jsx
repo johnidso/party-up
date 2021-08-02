@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 function RegisterForm() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const emptyUser = {username:'', password:'', email:'', steamId:'', discordId:''};
+  const [newUser, setNewUser] = useState(emptyUser);
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
 
@@ -12,12 +12,17 @@ function RegisterForm() {
 
     dispatch({
       type: 'REGISTER',
-      payload: {
-        username: username,
-        password: password,
-      },
+      payload: newUser
     });
   }; // end registerUser
+
+  // Handle changes to state from several inputs 
+  const handleChange = event => {
+    const value = event.target.value;
+    setNewUser({
+        ...newUser, [event.target.name]: value
+    });
+}
 
   return (
     <form className="formPanel" onSubmit={registerUser}>
@@ -27,33 +32,69 @@ function RegisterForm() {
           {errors.registrationMessage}
         </h3>
       )}
-      <div>
+      
         <label htmlFor="username">
           Username:
           <input
+            className="nes-input"
             type="text"
             name="username"
-            value={username}
+            value={newUser.username}
             required
-            onChange={(event) => setUsername(event.target.value)}
+            onChange={handleChange}
           />
         </label>
-      </div>
-      <div>
+      
         <label htmlFor="password">
           Password:
           <input
+            className="nes-input"
             type="password"
             name="password"
-            value={password}
+            value={newUser.password}
             required
-            onChange={(event) => setPassword(event.target.value)}
+            onChange={handleChange}
           />
         </label>
-      </div>
-      <div>
-        <input className="btn" type="submit" name="submit" value="Register" />
-      </div>
+
+        <label htmlFor="email">
+          Email:
+          <input
+            className="nes-input"
+            type="text"
+            name="email"
+            value={newUser.email}
+            required
+            onChange={handleChange}
+          />
+        </label>
+
+        <label htmlFor="steam id">
+          Steam ID:
+          <input
+            className="nes-input"
+            type="text"
+            name="steamId"
+            value={newUser.steamId}
+            required
+            onChange={handleChange}
+          />
+        </label>     
+
+        <label htmlFor="discord id">
+          Discord ID:
+          <input
+            className="nes-input"
+            type="text"
+            name="discordId"
+            value={newUser.discordId}
+            required
+            onChange={handleChange}
+          />
+        </label>  
+      
+        <input className="nes-btn is-primary" type="submit" name="submit" value="Register" />
+      
     </form>
   );
 }

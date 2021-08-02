@@ -35,7 +35,7 @@ function LoginForm() {
         <label htmlFor="username">
           Username:
           <input
-            class="nes-input"
+            className="nes-input"
             type="text"
             name="username"
             required
@@ -48,7 +48,7 @@ function LoginForm() {
         <label htmlFor="password">
           Password:
           <input
-            class="nes-input"
+            className="nes-input"
             type="password"
             name="password"
             required
