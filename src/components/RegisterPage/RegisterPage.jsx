@@ -8,7 +8,7 @@ function RegisterPage() {
 
   return (
     <section>
-      <section class="nes-container">
+      <section className="nes-container">
         <RegisterForm />
       </section>
 
