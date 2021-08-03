@@ -1,11 +1,10 @@
-import { useDispatch } from "react-redux"
-
+import './LibraryItem.css';
 
 function LibraryItem(props) {
 
     return(
-        <section 
-            className="nes-container"
+        <section
+            className="nes-container libraryItem"
             style={{ 
                 backgroundImage: `url("http://media.steampowered.com/steamcommunity/public/images/apps/${props.gameId}/${props.img}.jpg")` 
               }}
