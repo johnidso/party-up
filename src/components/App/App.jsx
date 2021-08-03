@@ -16,6 +16,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import PlaylistPage from '../PlaylistPage/PlaylistPage';
 
 import './App.css';
 
@@ -32,7 +33,7 @@ function App() {
         <Nav />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-          <Redirect exact from="/" to="/login" />
+          <Redirect exact from="/" to="/home" />
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
@@ -47,11 +48,11 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows InfoPage
             exact
-            path="/info"
+            path="/playlist"
           >
-            <InfoPage />
+            <PlaylistPage />
           </ProtectedRoute>
 
           {/* When a value is supplied for the authRedirect prop the user will
@@ -63,7 +64,7 @@ function App() {
             // - else shows LoginPage at /login
             exact
             path="/login"
-            authRedirect="/user"
+            authRedirect="/home"
           >
             <LoginPage />
           </ProtectedRoute>
@@ -74,18 +75,18 @@ function App() {
             // - else shows RegisterPage at "/registration"
             exact
             path="/registration"
-            authRedirect="/user"
+            authRedirect="/home"
           >
             <RegisterPage />
           </ProtectedRoute>
 
           <ProtectedRoute
             // with authRedirect:
-            // - if logged in, redirects to "/user"
-            // - else shows LandingPage at "/home"
+            // - if logged in, redirects to "/home" => "/playlist"
+            // - else shows LoginPage at "/home"
             exact
             path="/home"
-            authRedirect="/user"
+            authRedirect="/playlist"
           >
             <LoginPage />
           </ProtectedRoute>
