@@ -4,14 +4,28 @@ import LibraryList from '../LibraryList/LibraryList';
 
 function PlaylistPage() {
     const dispatch = useDispatch();
+    const playlist = useSelector(store => store.playlist);
     // Dispatch to get all user's steam games from API
     useEffect(() => {
         dispatch({type:'GET_GAMES'});
+        dispatch({type:'GET_PLAYLIST'});
     }, []);
     return(
         <>
-            <p>playlist</p>
-            <p>search</p>
+            {playlist.map(game => {
+                return(
+                    <section
+                        className="nes-container playlistItem"
+                        key={game.id}
+                        style={{ 
+                        backgroundImage: `url("http://media.steampowered.com/steamcommunity/public/images/apps/${game.game_id}/${game.image}.jpg")` 
+                        }}
+                    >
+                        <button className="nes-btn is-success">-</button>
+                    </section>
+                )
+            })}
+
             <LibraryList />
         </>
     )
