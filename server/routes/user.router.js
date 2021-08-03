@@ -1,3 +1,4 @@
+const { default: axios } = require('axios');
 const express = require('express');
 const {
   rejectUnauthenticated,
@@ -7,6 +8,8 @@ const pool = require('../modules/pool');
 const userStrategy = require('../strategies/user.strategy');
 
 const router = express.Router();
+
+require('dotenv').config();
 
 // Handles Ajax request for user information if user is authenticated
 router.get('/', rejectUnauthenticated, (req, res) => {
@@ -33,6 +36,25 @@ router.post('/register', (req, res, next) => {
       console.log('User registration failed: ', err);
       res.sendStatus(500);
     });
+    // Get the user's profile data from steam and store it in steam-info table
+    axios.get(`http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${process.env.STEAM_API_KEY}&steamids=${steam_id}`)
+    .then((result) => {
+      const personaName = result.data.response.players[0].personaname;
+      const avatar = result.data.response.players[0].avatarfull;
+      const profileUrl = result.data.response.players[0].profileurl;
+      const addSteamInfoQuery = `
+      INSERT INTO "steam-info" (steam_id, avatar, persona, profile_url)
+      VALUES ($1, $2, $3, $4) RETURNING id;
+      `;
+      pool.query(addSteamInfoQuery, [steam_id, avatar, personaName, profileUrl])
+      .then(console.log('Steam user data added'))
+      .catch((err) => {
+      console.log('Add Steam user data failed:', err);
+    });
+    })
+    .catch(err => {
+      console.log('Error getting player summary from steam', err);
+    })
 });
 
 // Handles login form authenticate/login POST
