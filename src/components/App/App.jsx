@@ -10,10 +10,7 @@ import { useDispatch } from 'react-redux';
 
 import Nav from '../Nav/Nav';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-import AboutPage from '../AboutPage/AboutPage';
 import UserProfile from '../UserProfile/UserProfile';
-import InfoPage from '../InfoPage/InfoPage';
-import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import PlaylistPage from '../PlaylistPage/PlaylistPage';

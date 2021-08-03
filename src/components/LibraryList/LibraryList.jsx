@@ -1,16 +1,25 @@
 import { useSelector } from "react-redux";
+import { useState } from "react";
 import LibraryItem from "../LibraryItem/LibraryItem";
 
 
 function LibraryList() {
     const library = useSelector(store => store.library);
+    const [search, setSearch] = useState('');
+    let emptySearch = '';
 
-    // const handleClick = () => {
-    //     console.log(library.response.games);
-    // }
+    const handleChange = event => {
+        const value = event.target.value;
+        setSearch(value);
+    }
+
     return(
         <section>
             <p>My Library</p>
+            <section id='searchSection'>
+            <input type="text" id="searchIn" value={search} className="nes-input" placeholder="search games" onChange={handleChange}></input>
+            <button className="nes-btn" id="searchButton" >Search</button>
+            </section>
             {library.map(game => {
                 if (game.playtime_2weeks) {
                     return (

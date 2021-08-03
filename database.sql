@@ -15,3 +15,11 @@ CREATE TABLE "steam-info" (
 	"persona" VARCHAR(50) NOT NULL,
 	"profile_url" VARCHAR(255) NOT NULL
 	);
+
+CREATE TABLE "playlist" (
+	"id" SERIAL PRIMARY KEY, 
+	"steam_id" VARCHAR(70) NOT NULL,
+	"game_id" VARCHAR(20) NOT NULL,
+	"image" VARCHAR(255) NOT NULL
+	);
+	
