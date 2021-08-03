@@ -5,13 +5,17 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 require('dotenv').config();
-/**
- * GET route template
- */
+
 router.get('/', rejectUnauthenticated, (req, res) => {
+    // GET user's game data from Steam API
   axios.get(`http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${process.env.STEAM_API_KEY}&steamid=${req.user.steam_id}&format=json&include_appinfo=true`)
   .then(result => {
-      res.send(result.data);
+      const removeGamesQuery = `
+      
+      `
+      const insertGamesQuery = `
+      INSERT INTO library (steam_id, game_id, name, image, last_played, playtime_total, playtime_2wk);
+      `
   })
   .catch(err => {
       console.log('Error getting user games', err);

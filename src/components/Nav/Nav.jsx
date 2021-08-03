@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import {useSelector} from 'react-redux';
 
@@ -19,27 +18,30 @@ function Nav() {
 
   return (
     <div className="nav">
-      <Link to="/home">
-        <h2 className="nav-title">Prime Solo Project</h2>
-      </Link>
-      <div>
-        <Link className="navLink" to={loginLinkData.path}>
-          {loginLinkData.text}
-        </Link>
+      {user.id &&
+        <>
+          <button className="nes-btn">Menu</button>
+          <Link to="/home">
+            <h2 className="nav-title">PartyUp!</h2>
+          </Link>
+          <Link to="/user">
+            <img className="nes-avatar is-rounded is-large" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/b2/b20ab773280225b221a909a73bbe5aeb1613ade6_full.jpg"></img>
+          </Link>
+        </>
+      }
+      {!user.id &&
+        <>
+          <Link to="/home">
+          <h2 className="nav-title">PartyUp!</h2>
+          </Link>
+          <Link className="nes-btn navLink" to="/about">
+            About
+          </Link>
+        </>
+      }
+      
 
-        {user.id && (
-          <>
-            <Link className="navLink" to="/info">
-              Info Page
-            </Link>
-            <LogOutButton className="navLink" />
-          </>
-        )}
-
-        <Link className="navLink" to="/about">
-          About
-        </Link>
-      </div>
+      
     </div>
   );
 }

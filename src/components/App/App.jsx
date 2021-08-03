@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux';
 import Nav from '../Nav/Nav';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
+import UserProfile from '../UserProfile/UserProfile';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
@@ -43,7 +43,7 @@ function App() {
             exact
             path="/user"
           >
-            <UserPage />
+            <UserProfile />
           </ProtectedRoute>
 
           <ProtectedRoute
