@@ -8,9 +8,9 @@ CREATE TABLE "users" (
 	"discord_id" VARCHAR(30)
 	);
 
-CREATE TABLE "steam-info" (
+CREATE TABLE "steam_info" (
 	"id" SERIAL PRIMARY KEY,
-	"steam_id" VARCHAR(70) NOT NULL,
+	"steam_id" BIGINT NOT NULL,
 	"avatar" VARCHAR(255) NOT NULL,
 	"persona" VARCHAR(50) NOT NULL,
 	"profile_url" VARCHAR(255) NOT NULL
