@@ -1,5 +1,9 @@
 import axios from 'axios';
-import { put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { takeLatest, put } from '@redux-saga/core/effects';
+
+function* userSaga() {
+  yield takeLatest('FETCH_USER', fetchUser);
+}
 
 // worker Saga: will be fired on "FETCH_USER" actions
 function* fetchUser() {
@@ -24,20 +28,6 @@ function* fetchUser() {
   }
 }
 
-// GET USERS saga to handle user search requests
-function* getUsers() {
-  try {
-    const users = yield axios.get(`/api/user/search/?${action.payload}`);
-    console.log('USER SEARCH:', users.data);
-    yield put({type: 'SET_USERS', payload: users.data})
-  } catch (error) {
-    console.log('Get users search error', error);
-  }
-}
 
-function* userSaga() {
-  yield takeLatest('FETCH_USER', fetchUser);
-  yield takeEvery('GET_USERS', getUsers);
-}
 
 export default userSaga;

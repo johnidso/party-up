@@ -21,7 +21,7 @@ function Nav() {
       {user.id &&
         <>
           <button className="nes-btn">Menu</button>
-          <Link to="/home">
+          <Link to="/playlist">
             <h2 className="nav-title">PartyUp!</h2>
           </Link>
           <Link to="/user">
@@ -31,7 +31,7 @@ function Nav() {
       }
       {!user.id &&
         <>
-          <Link to="/home">
+          <Link to="/login">
           <h2 className="nav-title">PartyUp!</h2>
           </Link>
           <Link className="nes-btn navLink" to="/about">

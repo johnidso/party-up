@@ -14,8 +14,8 @@ import UserProfile from '../UserProfile/UserProfile';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import PlaylistPage from '../PlaylistPage/PlaylistPage';
-
 import './App.css';
+import MyPartyPage from '../MyPartyPage/MyPartyPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -29,13 +29,28 @@ function App() {
       <div>
         <Nav />
         <Switch>
-          {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-          <Redirect exact from="/" to="/home" />
+          
+          <Redirect exact from="/" to="/playlist" />
+
+          <ProtectedRoute
+            exact
+            path="/party"
+          >
+            <MyPartyPage />
+          </ProtectedRoute>
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
+          
+          <ProtectedRoute
+            exact
+            path="/playlist"
+          >
+            <PlaylistPage />
+          </ProtectedRoute>
+          
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
             exact
@@ -44,13 +59,7 @@ function App() {
             <UserProfile />
           </ProtectedRoute>
 
-          <ProtectedRoute
-            // logged in shows InfoPage
-            exact
-            path="/playlist"
-          >
-            <PlaylistPage />
-          </ProtectedRoute>
+          
 
           {/* When a value is supplied for the authRedirect prop the user will
             be redirected to the path supplied when logged in, otherwise they will
@@ -61,7 +70,7 @@ function App() {
             // - else shows LoginPage at /login
             exact
             path="/login"
-            authRedirect="/home"
+            authRedirect="/playlist"
           >
             <LoginPage />
           </ProtectedRoute>
@@ -72,12 +81,12 @@ function App() {
             // - else shows RegisterPage at "/registration"
             exact
             path="/registration"
-            authRedirect="/home"
+            authRedirect="/playlist"
           >
             <RegisterPage />
           </ProtectedRoute>
 
-          <ProtectedRoute
+          {/* <ProtectedRoute
             // with authRedirect:
             // - if logged in, redirects to "/home" => "/playlist"
             // - else shows LoginPage at "/home"
@@ -86,7 +95,7 @@ function App() {
             authRedirect="/playlist"
           >
             <LoginPage />
-          </ProtectedRoute>
+          </ProtectedRoute> */}
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
