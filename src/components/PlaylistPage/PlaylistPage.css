@@ -1,0 +1,24 @@
+.playlistItem {
+    padding: 0;
+    text-align:center;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    image-rendering: pixelated;
+    min-width: 224px;
+    min-height: 148px;
+    position:relative;
+    margin-bottom:5px;
+    margin-top:5px;
+}
+
+.playlistItem button {
+    position:absolute;
+    top:0;
+    right:0;
+    font-size:12px;
+}
+
+.playlistItem i {
+    color:white;
+}

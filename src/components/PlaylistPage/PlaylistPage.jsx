@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import LibraryList from '../LibraryList/LibraryList';
+import './PlaylistPage.css';
 
 function PlaylistPage() {
     const dispatch = useDispatch();
@@ -21,7 +22,7 @@ function PlaylistPage() {
                         backgroundImage: `url("http://media.steampowered.com/steamcommunity/public/images/apps/${game.game_id}/${game.image}.jpg")` 
                         }}
                     >
-                        <button className="nes-btn is-success">-</button>
+                        <button className="nes-btn is-warning"><i class="nes-icon close is-small"></i></button>
                     </section>
                 )
             })}
