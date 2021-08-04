@@ -5,6 +5,7 @@ import userSaga from './user.saga';
 import librarySaga from './library.saga';
 import playlistSaga from './playlist.saga';
 import userDisplaySaga from './userDisplay.saga';
+import partySaga from './party.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -21,5 +22,6 @@ export default function* rootSaga() {
     librarySaga(),
     playlistSaga(),
     userDisplaySaga(),
+    partySaga(),
   ]);
 }

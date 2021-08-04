@@ -19,9 +19,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 // Gets user(s) based on USER QUERY PARAM
 router.get('/search', rejectUnauthenticated, (req, res) => {
-  console.log('in /api/user/search');
   const userQuery = req.query.user;
-  console.log('Userquery:', userQuery);
   const dbQuery = `
   SELECT users.id, users.username, steam_info.avatar FROM users
   JOIN steam_info ON users.steam_id = steam_info.steam_id
