@@ -7,7 +7,7 @@ function SearchResult (props){
     const dispatch = useDispatch();
     const friendId = props.userId;
     const addToParty = () => {
-        dispatch({type:'ADD_TO_PARTY', payload: friendId})
+        dispatch({type:'ADD_TO_PARTY', payload: friendId});
         console.log('Dispatching', friendId);
     }
     return(
