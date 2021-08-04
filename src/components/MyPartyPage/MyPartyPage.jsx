@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-
+import SearchResult from "./SearchResult/SearchResult";
 
 
 function MyPartyPage() {
@@ -31,7 +31,7 @@ function MyPartyPage() {
             <button className="nes-btn is-primary" onClick={searchUsers}>Search</button>
             {userResults.map(user => {
                 return (
-                    <p>{user.username}</p>
+                    <SearchResult key={user.id} username={user.username} avatar={user.avatar} />
                 )
             })}
         </>
