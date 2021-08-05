@@ -17,6 +17,8 @@ import PlaylistPage from '../PlaylistPage/PlaylistPage';
 import './App.css';
 import MyPartyPage from '../MyPartyPage/MyPartyPage';
 import UserPage from '../UserPage/UserPage';
+import CreateEvent from '../CreateEvent/CreateEvent';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -51,6 +53,12 @@ function App() {
             path="/user/:id"
           >
             <UserPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            path="/event/new/:attendeeId/:attendeeName/:gameId/:gameName"
+          >
+            <CreateEvent />
           </ProtectedRoute>
 
           {/* For protected routes, the view could show one of several things on the same route.
