@@ -6,15 +6,15 @@ import {useSelector} from 'react-redux';
 function Nav() {
   const user = useSelector((store) => store.user);
 
-  let loginLinkData = {
-    path: '/login',
-    text: 'Login / Register',
-  };
+  // let loginLinkData = {
+  //   path: '/login',
+  //   text: 'Login / Register',
+  // };
 
-  if (user.id != null) {
-    loginLinkData.path = '/user';
-    loginLinkData.text = 'Home';
-  }
+  // if (user.id != null) {
+  //   loginLinkData.path = '/profile';
+  //   loginLinkData.text = 'Home';
+  // }
 
   return (
     <div className="nav">
@@ -24,7 +24,7 @@ function Nav() {
           <Link to="/playlist">
             <h2 className="nav-title">PartyUp!</h2>
           </Link>
-          <Link to="/user">
+          <Link to="/profile">
             <img className="nes-avatar is-rounded is-large" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/b2/b20ab773280225b221a909a73bbe5aeb1613ade6_full.jpg"></img>
           </Link>
         </>

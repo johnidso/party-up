@@ -5,6 +5,8 @@ import library from './library.reducer';
 import playlist from './playlist.reducer';
 import userDisplay from './userDisplay.reducer';
 import party from './party.reducer';
+import otherUser from './otherUser.reducer';
+import memberPlaylist from './memberPlaylist.reducer';
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -17,7 +19,9 @@ const rootReducer = combineReducers({
   library, // contains steam game library for logged in user
   playlist, // contains user playlist data
   userDisplay, // contains returned users based on search
-  party,
+  party, // contains party (friend) list details for a user
+  otherUser, // contains a member's user detail
+  memberPlaylist, // contains a member's playlist detail
 });
 
 export default rootReducer;

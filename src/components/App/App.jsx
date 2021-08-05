@@ -16,6 +16,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import PlaylistPage from '../PlaylistPage/PlaylistPage';
 import './App.css';
 import MyPartyPage from '../MyPartyPage/MyPartyPage';
+import UserPage from '../UserPage/UserPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -46,11 +47,11 @@ function App() {
             <MyPartyPage />
           </ProtectedRoute>
 
-          {/* <ProtectedRoute
+          <ProtectedRoute
             path="/user/:id"
           >
             <UserPage />
-          </ProtectedRoute> */}
+          </ProtectedRoute>
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.

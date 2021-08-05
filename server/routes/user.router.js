@@ -35,6 +35,25 @@ router.get('/search', rejectUnauthenticated, (req, res) => {
   })
 });
 
+// Returns a single OTHER user detail by ID
+router.get('/byId/:id', rejectUnauthenticated, (req, res) => {
+  const userId = req.params.id;
+  const dbQuery = `
+  SELECT users.id, users.username, users.steam_id, users.discord_id, steam_info.avatar, steam_info.persona, steam_info.profile_url FROM users
+  JOIN steam_info ON users.steam_id = steam_info.steam_id
+  WHERE users.id = $1;
+  `;
+  pool.query(dbQuery, [userId])
+  .then( dbResponse => {
+    res.send(dbResponse.rows);
+  })
+  .catch( err => {
+    console.log('Error returning other user', err);
+    sendStatus(500);
+  })
+});
+
+
 // Handles POST request with new user data
 // The only thing different from this and every other post we've seen
 // is that the password gets encrypted before being inserted
