@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 
 import Nav from '../Nav/Nav';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-import UserProfile from '../UserProfile/UserProfile';
+import MyProfilePage from '../MyProfilePage/MyProfilePage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import PlaylistPage from '../PlaylistPage/PlaylistPage';
@@ -34,29 +34,37 @@ function App() {
 
           <ProtectedRoute
             exact
+            path="/playlist"
+          >
+            <PlaylistPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
             path="/party"
           >
             <MyPartyPage />
           </ProtectedRoute>
+
+          {/* <ProtectedRoute
+            path="/user/:id"
+          >
+            <UserPage />
+          </ProtectedRoute> */}
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
           
-          <ProtectedRoute
-            exact
-            path="/playlist"
-          >
-            <PlaylistPage />
-          </ProtectedRoute>
+          
           
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
             exact
-            path="/user"
+            path="/profile"
           >
-            <UserProfile />
+            <MyProfilePage />
           </ProtectedRoute>
 
           
