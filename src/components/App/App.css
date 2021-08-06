@@ -11,12 +11,18 @@ body {
 }
 
 section {
-  max-width:95%;
   margin: 0 auto;
 }
 
 .nes-container {
   background-color: white;
+}
+
+h1 {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  text-align: center;
+  font-size: 20px;
 }
 /* --------------------------------------------------------------------------------
 Alert

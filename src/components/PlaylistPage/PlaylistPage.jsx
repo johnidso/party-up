@@ -17,8 +17,16 @@ function PlaylistPage() {
         dispatch({type: 'DELETE_PLAYLIST_GAME', payload: action.target.id});
     }
 
+    console.log(playlist);
+
     return(
         <>
+            <h1>My Playlist</h1>
+            {(playlist.length===0) &&
+                <section className="nes-container">
+                    Add games you're currently playing!
+                </section>
+                }
             {playlist.map(game => {
                 return(
                     <section

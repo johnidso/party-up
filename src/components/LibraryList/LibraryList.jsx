@@ -15,7 +15,7 @@ function LibraryList() {
 
     return(
         <section>
-            <p>My Library</p>
+            <h1>My Library</h1>
             <section id='searchSection'>
             <input type="text" id="searchIn" value={search} className="nes-input" placeholder="search games" onChange={handleChange}></input>
             <button className="nes-btn" id="searchButton" >Search</button>
