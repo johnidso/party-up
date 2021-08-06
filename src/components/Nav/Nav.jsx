@@ -52,15 +52,14 @@ function Nav() {
         
       {!user.id &&
         <>
-          <Link to="/login">
-          <button className="nes-btn">Log In</button>
-          </Link>
-          <Link to="/login">
-          <h2 className="nav-title">PartyUp!</h2>
-          </Link>
-          <Link className="nes-btn navLink" to="/about">
-            About
-          </Link>
+          
+            <Link to="/login">
+            <h2 className="nav-title">PartyUp!</h2>
+            </Link>
+            <Link className="nes-btn navLink" to="/about">
+              About
+            </Link>
+          
         </>
       }
       

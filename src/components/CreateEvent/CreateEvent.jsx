@@ -26,11 +26,13 @@ function CreateEvent() {
                 />
             </section>
             <section
-                        className="nes-container playlistItem"
+                        className="nes-container with-title playlistItem"
                         style={{ 
                         backgroundImage: `url("http://media.steampowered.com/steamcommunity/public/images/apps/${gameId}/${gameImg}.jpg")` 
                         }}
-                    ></section>
+                    >
+                        <p className="title">Playing</p>
+                    </section>
             <section className="nes-container with-title playlistItem">
                 <p className="title">In your party</p>
                 <p>{attendeeName}</p>
