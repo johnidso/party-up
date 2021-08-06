@@ -18,6 +18,7 @@ import './App.css';
 import MyPartyPage from '../MyPartyPage/MyPartyPage';
 import UserPage from '../UserPage/UserPage';
 import CreateEvent from '../CreateEvent/CreateEvent';
+import MySchedule from '../MySchedule/MySchedule';
 
 
 function App() {
@@ -47,6 +48,12 @@ function App() {
             path="/party"
           >
             <MyPartyPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            path="/schedule"
+          >
+            <MySchedule />
           </ProtectedRoute>
 
           <ProtectedRoute

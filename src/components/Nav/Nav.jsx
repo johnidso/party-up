@@ -30,7 +30,9 @@ function Nav() {
           <Link to="/party">
             <button className="nes-btn is-primary" onClick={() => setMenu(!menu)}>My Party</button>
           </Link>
-          <button className="nes-btn is-primary" onClick={() => setMenu(!menu)}>Schedule</button>
+          <Link to="/schedule">
+            <button className="nes-btn is-primary" onClick={() => setMenu(!menu)}>Schedule</button>
+          </Link>
           <LogOutButton onClick={() => setMenu(!menu)} className="nes-btn is-warning" />
           <button className="nes-btn" onClick={() => setMenu(!menu)}>Close Menu</button>
         </section>

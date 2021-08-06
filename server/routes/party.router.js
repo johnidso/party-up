@@ -12,7 +12,6 @@ router.get('/', (req, res) => {
     pool.query(query,[req.user.id])
     .then(dbResponse => {
         res.send(dbResponse.rows);
-        console.log('Sent DB rows on party get');
     })
     .catch(err =>{
         console.log('Error getting user party records', err);

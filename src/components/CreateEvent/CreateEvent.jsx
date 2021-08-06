@@ -2,12 +2,13 @@ import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import React, { useState, useEffect } from "react";
 import { DateTimePicker } from "@material-ui/pickers";
 import DateFnsUtils from '@date-io/date-fns';
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import './CreateEvent.css';
 import { useDispatch } from 'react-redux';
 
 function CreateEvent() {
     const dispatch = useDispatch();
+    const history = useHistory();
     const [selectedDate, handleDateChange] = useState(new Date());
     const { attendeeId, attendeeName, gameId, gameImg } = useParams();
     const emptyEvent = {attendeeId: '', eventDateTime: '', playlistId: ''};
@@ -25,7 +26,7 @@ function CreateEvent() {
         console.log(attendeeId, gameId, selectedDate);
         dispatch({type:'ADD_EVENT', payload: newEvent});
         console.log('DISPATCHING EVENT:', newEvent);
-        // Then let's push the user to their schedule page when it exists.
+        history.push('/schedule');
     }
 
     return(
