@@ -1,13 +1,32 @@
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { DateTimePicker } from "@material-ui/pickers";
 import DateFnsUtils from '@date-io/date-fns';
 import { useParams } from "react-router-dom";
 import './CreateEvent.css';
+import { useDispatch } from 'react-redux';
 
 function CreateEvent() {
+    const dispatch = useDispatch();
     const [selectedDate, handleDateChange] = useState(new Date());
     const { attendeeId, attendeeName, gameId, gameImg } = useParams();
+    const emptyEvent = {attendeeId: '', eventDateTime: '', playlistId: ''};
+    const [newEvent, setNewEvent] = useState(emptyEvent);
+    
+    console.log(gameId);
+
+    useEffect(() => {
+        setNewEvent({
+            ...newEvent, ['attendeeId']: attendeeId, ['playlistId']: gameId, ['eventDateTime']: selectedDate
+        });
+    }, [handleDateChange]);
+
+    const createEvent = () => {
+        console.log(attendeeId, gameId, selectedDate);
+        dispatch({type:'ADD_EVENT', payload: newEvent});
+        console.log('DISPATCHING EVENT:', newEvent);
+        // Then let's push the user to their schedule page when it exists.
+    }
 
     return(
         <>
@@ -17,7 +36,6 @@ function CreateEvent() {
             <section className="nes-container with-title">
                 <p className="title">Game Time</p>
                 <DateTimePicker
-                    autoOk
                     disablePast
                     className="datePicker"
                     inputVariant="standard"
@@ -38,7 +56,7 @@ function CreateEvent() {
                 <p>{attendeeName}</p>
             </section>
             <button className="nes-btn">Back</button>
-            <button className="nes-btn is-primary" onClick={() => console.log(selectedDate)}>Invite!</button>
+            <button className="nes-btn is-primary" onClick={createEvent}>Invite!</button>
         
 
             
