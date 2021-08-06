@@ -8,7 +8,6 @@ function SearchResult (props){
     const friendId = props.userId;
     const addToParty = () => {
         dispatch({type:'ADD_TO_PARTY', payload: friendId});
-        console.log('Dispatching', friendId);
     }
     return(
         <section className="nes-container" >

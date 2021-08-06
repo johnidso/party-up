@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { useEffect } from "react";
+import './UserPage.css';
 
 
 function UserPage () {
@@ -14,10 +15,17 @@ function UserPage () {
         dispatch({type:'GET_USER_BY_ID', payload: id})
     }, []);
 
-    console.log(playlist);
+    console.log(user);
 
     return (
         <>
+            <section id="greeting" class="message-list">
+                <img id="greetingImg" className="nes-avatar is-rounded is-large" src={user.avatar} />
+                <section id="greetingMessage" class="nes-balloon from-left">
+                    <p>Hello there!</p>
+                </section>
+            </section>
+            <p>{user.username} is playing...</p>
             {playlist.map(game => {
                 return(
                     <section

@@ -1,0 +1,11 @@
+#greeting {
+    display:flex;
+    align-content:center;
+    text-align: center;
+    justify-content: space-around;
+}
+
+#greetingImg {
+    margin-top:35px;
+    margin-bottom:0;
+}
