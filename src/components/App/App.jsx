@@ -56,7 +56,8 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            path="/event/new/:attendeeId/:attendeeName/:gameId/:gameName"
+            exact
+            path="/event/new/:attendeeId/:attendeeName/:gameId/:gameImg/"
           >
             <CreateEvent />
           </ProtectedRoute>

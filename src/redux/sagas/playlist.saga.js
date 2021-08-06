@@ -4,6 +4,7 @@ import { takeEvery, put, call} from "@redux-saga/core/effects";
 function* playlistSaga () {
     yield takeEvery('ADD_PLAYLIST_GAME', addPlaylistGame);
     yield takeEvery('GET_PLAYLIST', getPlaylist);
+    yield takeEvery('DELETE_PLAYLIST_GAME', deletePlaylistGame)
 }
  
 function* addPlaylistGame(action) {
@@ -20,7 +21,17 @@ function* getPlaylist() {
         const playlist = yield axios.get('/api/playlist');
         yield put({ type: 'SET_PLAYLIST', payload: playlist.data });
     } catch (err) {
-        console.log('Error getting user games', err);
+        console.log('Error getting user playlist', err);
+    }
+}
+
+function* deletePlaylistGame(action) {
+    console.log(action.payload);
+    try {
+        yield axios.delete(`/playlist/${action.payload}`);
+        yield put({type:'GET_PLAYLIST'});
+    } catch (err) {
+        console.log('Error deleting playlist item', err);
     }
 }
 

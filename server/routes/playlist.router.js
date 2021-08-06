@@ -35,4 +35,19 @@ router.post('/', rejectUnauthenticated, (req, res) => {
   })
 });
 
+router.delete('/:id', rejectUnauthenticated, (req,res) => {
+    const query = `
+    DELETE FROM playlist
+    WHERE steam_id=$1 AND game_id=$2;
+    `;
+    pool.query(query, [req.user.steam_id, req.params.id])
+    .then(result => {
+        res.sendStatus(200)
+    })
+    .catch(err => {
+        console.log('Error deleting playlist item',err);
+        res.sendStatus(500);
+    })
+})
+
 module.exports = router;

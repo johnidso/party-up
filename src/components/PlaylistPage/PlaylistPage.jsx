@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from "redux";
 import LibraryList from '../LibraryList/LibraryList';
 import './PlaylistPage.css';
 
@@ -11,6 +12,11 @@ function PlaylistPage() {
         dispatch({type:'GET_GAMES'});
         dispatch({type:'GET_PLAYLIST'});
     }, []);
+
+    const removeFromPlaylist = (action) => {
+        dispatch({type: 'DELETE_PLAYLIST_GAME', payload: action.target.id});
+    }
+
     return(
         <>
             {playlist.map(game => {
@@ -22,7 +28,7 @@ function PlaylistPage() {
                         backgroundImage: `url("http://media.steampowered.com/steamcommunity/public/images/apps/${game.game_id}/${game.image}.jpg")` 
                         }}
                     >
-                        <button className="nes-btn is-warning"><i className="nes-icon close is-small"></i></button>
+                        <button className="nes-btn is-warning" id={game.game_id} onClick={removeFromPlaylist}><i className="nes-icon close is-small"></i></button>
                     </section>
                 )
             })}
