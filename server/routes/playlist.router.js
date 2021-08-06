@@ -36,6 +36,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 });
 
 router.delete('/:id', rejectUnauthenticated, (req,res) => {
+    console.log('PARAMS,', req.params);
     const query = `
     DELETE FROM playlist
     WHERE steam_id=$1 AND game_id=$2;

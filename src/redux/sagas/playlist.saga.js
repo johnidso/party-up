@@ -28,7 +28,7 @@ function* getPlaylist() {
 function* deletePlaylistGame(action) {
     console.log(action.payload);
     try {
-        yield axios.delete(`/playlist/${action.payload}`);
+        yield axios.delete(`/api/playlist/${action.payload}`);
         yield put({type:'GET_PLAYLIST'});
     } catch (err) {
         console.log('Error deleting playlist item', err);
