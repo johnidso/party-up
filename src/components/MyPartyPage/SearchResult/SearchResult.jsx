@@ -1,8 +1,6 @@
 import { useDispatch } from "react-redux";
 
-
-
-
+// displays users returned in the search results from MyPartyPage.jsx
 function SearchResult (props){
     const dispatch = useDispatch();
     const friendId = props.userId;
