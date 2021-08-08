@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
-import LibraryList from '../LibraryList/LibraryList';
+import LibraryList from "./LibraryList/LibraryList";
 import './PlaylistPage.css';
 
 function PlaylistPage() {
