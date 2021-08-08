@@ -35,7 +35,7 @@ function UserPage () {
                         backgroundImage: `url("http://media.steampowered.com/steamcommunity/public/images/apps/${game.game_id}/${game.image}.jpg")` 
                         }}
                     >
-                        <button className="nes-btn is-primary" onClick={() => history.push(`/event/new/${id}/${user.username}/${game.game_id}/${game.image}/`)}>Party Up!</button>
+                        <button className="nes-btn is-primary selectorBtn" onClick={() => history.push(`/event/new/${id}/${user.username}/${game.game_id}/${game.image}/`)}>Party Up!</button>
                     </section>
                 )
             })}

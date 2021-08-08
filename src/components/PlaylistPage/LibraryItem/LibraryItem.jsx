@@ -16,7 +16,7 @@ function LibraryItem(props) {
                 backgroundImage: `url("http://media.steampowered.com/steamcommunity/public/images/apps/${props.gameId}/${props.img}.jpg")` 
               }}
             >
-            <button className="nes-btn is-success" onClick={addToPlaylist}>+</button>
+            <button className="nes-btn is-success selectorBtn" onClick={addToPlaylist}>+</button>
         </section>
     )
 }

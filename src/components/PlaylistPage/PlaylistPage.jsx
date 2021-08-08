@@ -36,7 +36,7 @@ function PlaylistPage() {
                         backgroundImage: `url("http://media.steampowered.com/steamcommunity/public/images/apps/${game.game_id}/${game.image}.jpg")` 
                         }}
                     >
-                        <button className="nes-btn is-warning" id={game.game_id} onClick={removeFromPlaylist}><i className="nes-icon close is-small"></i></button>
+                        <button className="nes-btn is-warning selectorBtn" id={game.game_id} onClick={removeFromPlaylist}><i className="nes-icon close is-small"></i></button>
                     </section>
                 )
             })}

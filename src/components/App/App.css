@@ -18,6 +18,10 @@ section {
   background-color: white;
 }
 
+.selectorBtn {
+  opacity: .85;
+}
+
 h1 {
   padding-top: 10px;
   padding-bottom: 5px;
