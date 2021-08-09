@@ -22,3 +22,8 @@
 .playlistItem i {
     color:white;
 }
+
+#emptyPlaylistMessage {
+    text-align: center;
+    font-size: 14px;
+}

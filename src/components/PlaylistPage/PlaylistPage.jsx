@@ -23,8 +23,8 @@ function PlaylistPage() {
         <>
             <h1>My Playlist</h1>
             {(playlist.length===0) &&
-                <section className="nes-container">
-                    Add games you're currently playing!
+                <section className="nes-container" id="emptyPlaylistMessage">
+                    Add games to show your friends what you're playing!
                 </section>
                 }
             {playlist.map(game => {

@@ -61,8 +61,9 @@ function LoginForm() {
         </label>
       </div>
       <div>
-        <button className="nes-btn" onClick={()=>history.push('/registration')}>Register</button>
-        <input className="nes-btn is-primary" id="submitBtn" type="submit" name="submit" value="Log In" />
+      <input className="nes-btn is-primary" id="submitBtn" type="submit" name="submit" value="Log In" />
+      <button className="nes-btn" onClick={()=>history.push('/registration')}>Register</button>
+        
       </div>
     </form>
   );

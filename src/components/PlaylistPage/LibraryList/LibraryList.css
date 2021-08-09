@@ -1,11 +1,13 @@
+#searchButtonLibrary {
+    float:right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 #clearButtonLibrary {
     float:right;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-#searchButtonLibrary {
-    float:right;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
+
