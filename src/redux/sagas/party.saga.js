@@ -10,7 +10,6 @@ function* partySaga() {
 function* getParty() {
     try {
       const party = yield axios.get('/api/party');
-      console.log('USER PARTY:', party.data);
       yield put({type: 'SET_PARTY', payload: party.data})
     } catch (error) {
       console.log('Get party members search error', error);
@@ -19,7 +18,6 @@ function* getParty() {
 
 function* addToParty (action) {
     try {
-        console.log('In party add saga', action.payload);
         yield call(axios.post, '/api/party', {id: action.payload});
         yield put({type:'GET_PARTY'});
     } catch (error){

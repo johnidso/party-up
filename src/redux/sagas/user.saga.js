@@ -3,6 +3,7 @@ import { takeLatest, put } from '@redux-saga/core/effects';
 
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
+  yield takeLatest('UPDATE_USER', updateUser);
 }
 
 // worker Saga: will be fired on "FETCH_USER" actions
@@ -28,6 +29,13 @@ function* fetchUser() {
   }
 }
 
-
+function* updateUser(action) {
+  try {
+    yield axios.put('/api/user', action.payload);
+    yield put({type: 'FETCH_USER'});
+  } catch (error) {
+    console.log('Saga: error updating user profile', error);
+  }
+}
 
 export default userSaga;

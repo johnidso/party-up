@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './MyProfilePage.css';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 function MyProfilePage() {
   const [editing, setEditing] = useState(false);
   const user = useSelector((store) => store.user);
+  const profile = {username: user.username, email: user.email, steam_id: user.steam_id, discord_id: user.discord_id};
+  const [profileEdits, setProfileEdits] = useState(profile);
+  const dispatch = useDispatch();
 
-  let username = user.username;
-  let email = user.email;
-  let steam_id = user.steam_id;
-  let discord_id = user.discord_id; 
-  let password;
+  const handleChange = (event) => {
+    const value = event.target.value;
+    setProfileEdits({
+      ...profileEdits, [event.target.name]: value
+    });
+  }
+
+  const saveChanges = () => {
+    dispatch({type:'UPDATE_USER', payload: profileEdits})
+  }
 
   return (
     <section className="container">
@@ -20,26 +28,22 @@ function MyProfilePage() {
         <section id="editingView">
           <section className="nes-container with-title profileItem">
             <p className="title">Username</p>
-            <input type="text" className="nes-input is-success" value={username}></input>
-          </section>
-          <section className="nes-container with-title profileItem">
-            <p className="title">Password</p>
-            <input type="text" className="nes-input is-success" value={password}></input>
+            <input type="text" className="nes-input is-success" name="username" value={profileEdits.username} onChange={handleChange}></input>
           </section>
           <section className="nes-container with-title profileItem">
             <p className="title">Email</p>
-            <input type="text" className="nes-input is-success" value={email}></input>
+            <input type="text" className="nes-input is-success" name="email" value={profileEdits.email} onChange={handleChange}></input>
           </section>
           <section className="nes-container with-title profileItem">
             <p className="title">Steam ID</p>
-            <input type="text" className="nes-input is-success" value={steam_id}></input>
+            <input type="text" className="nes-input is-success" name="steam_id" value={profileEdits.steam_id} onChange={handleChange}></input>
           </section>
           <section className="nes-container with-title profileItem">
             <p className="title">Discord ID</p>
-            <input type="text" className="nes-input is-success" value={discord_id}></input>
+            <input type="text" className="nes-input is-success" name="discord_id" value={profileEdits.discord_id} onChange={handleChange}></input>
           </section>
           <button className="nes-btn" id="cancelBtn" onClick={() => setEditing(false)}>Cancel</button>
-          <button className="nes-btn is-success" id="saveBtn">Save Changes</button>
+          <button className="nes-btn is-success" id="saveBtn" onClick={saveChanges}>Save Changes</button>
         </section>
       ) : (
         <section id="displayView">
