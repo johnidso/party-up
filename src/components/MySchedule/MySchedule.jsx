@@ -13,13 +13,9 @@ function MySchedule() {
         dispatch({type:'GET_MEMBERS'});
     }, []);
 
-    console.log(members);
-
     const findUsername = (searchId) => {
         for(let member of members){
-            console.log(member);
             if (member.id = searchId){
-                console.log(member.username);
                 return member.username;
             }
         }

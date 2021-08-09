@@ -8,9 +8,9 @@ function SearchResult (props){
         dispatch({type:'ADD_TO_PARTY', payload: friendId});
     }
     return(
-        <section className="nes-container" >
+        <section className="nes-container with-title searchResult" >
+            <p className="title">{props.username}</p>
             <img className="nes-avatar is-rounded is-large" src={props.avatar} />
-            <p>{props.username}</p>
             <button className="nes-btn is-success" onClick={addToParty}>+</button>
         </section>
     )

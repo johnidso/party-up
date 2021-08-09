@@ -6,7 +6,7 @@ import './MyPartyPage.css';
 
 function MyPartyPage() {
     const dispatch = useDispatch();
-    const userResults = useSelector(store => store.userDisplay);
+    const memberResults = useSelector(store => store.userDisplay);
     const party = useSelector(store => store.party);
     const [searchQuery, setSearchQuery] = useState('');
 
@@ -34,9 +34,9 @@ function MyPartyPage() {
             })}
             <input className="nes-input" id="searchIn" value={searchQuery} placeholder="search username" onChange={handleChange}></input>
             <button className="nes-btn is-primary" id="searchBtn" onClick={searchUsers}>Search</button>
-            {userResults.map(user => {
+            {memberResults.map(member => {
                 return (
-                    <SearchResult key={user.id} userId={user.id} username={user.username} avatar={user.avatar} />
+                    <SearchResult key={member.id} userId={member.id} username={member.username} avatar={member.avatar} />
                 )
             })}
         </>

@@ -2,7 +2,29 @@ h1 {
     text-align: center;
 }
 
+#searchIn {
+    margin-top: 10px;
+}
+
 #searchBtn {
+    clear:right;
     float:right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.searchResult {
+    clear:right;
+    margin-top: 10px;
+}
+
+.searchResult button{
+    position:absolute;
+    top:0;
+    right:0;
+    font-size:12px;
+}
+
+.partyResult {
     margin-top: 10px;
 }

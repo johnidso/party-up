@@ -21,7 +21,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 router.get('/search', rejectUnauthenticated, (req, res) => {
   const userQuery = req.query.user;
   const dbQuery = `
-  SELECT users.id, users.username, steam_info.avatar FROM users
+  SELECT users.id, users.username, users.steam_id, users.discord_id, steam_info.avatar FROM users
   JOIN steam_info ON users.steam_id = steam_info.steam_id
   WHERE username ILIKE $1;
   `;

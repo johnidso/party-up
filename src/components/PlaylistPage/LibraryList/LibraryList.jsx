@@ -42,7 +42,7 @@ function LibraryList() {
             <h1>My Library</h1>
             <section id='searchSection'>
             <input type="text" id="searchIn" value={search} className="nes-input" placeholder="search games" autocomplete="off" onChange={handleChange}></input>
-            <button className="nes-btn" id="searchButtonLibrary" onClick={handleSearch}>Search</button>
+            <button className="nes-btn is-primary" id="searchButtonLibrary" onClick={handleSearch}>Search</button>
             <button className="nes-btn" id="clearButtonLibrary" onClick={clearSearch}>Clear</button>
             {searchResults.map(game => {                
                 return (
