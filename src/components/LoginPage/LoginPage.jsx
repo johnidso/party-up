@@ -9,7 +9,6 @@ function LoginPage() {
       <section className="nes-container">
         <LoginForm />
       </section>
-      <button className="nes-btn" onClick={()=>history.push('/registration')}>Register</button>
     </>
     
   );

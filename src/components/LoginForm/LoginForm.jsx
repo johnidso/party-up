@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {useSelector} from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import './LoginForm.css';
 
 function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const errors = useSelector(store => store.errors);
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const login = (event) => {
@@ -58,7 +61,8 @@ function LoginForm() {
         </label>
       </div>
       <div>
-        <input className="nes-btn is-primary" type="submit" name="submit" value="Log In" />
+        <button className="nes-btn" onClick={()=>history.push('/registration')}>Register</button>
+        <input className="nes-btn is-primary" id="submitBtn" type="submit" name="submit" value="Log In" />
       </div>
     </form>
   );

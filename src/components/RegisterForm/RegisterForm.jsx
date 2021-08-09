@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import './RegisterForm.css';
 
 function RegisterForm() {
   const emptyUser = {username:'', password:'', email:'', steamId:'', discordId:''};
   const [newUser, setNewUser] = useState(emptyUser);
   const errors = useSelector((store) => store.errors);
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const registerUser = (event) => {
@@ -92,8 +95,16 @@ function RegisterForm() {
             onChange={handleChange}
           />
         </label>  
-      
-        <input className="nes-btn is-primary" type="submit" name="submit" value="Register" />
+        <button
+          type="button"
+          className="nes-btn"
+          onClick={() => {
+            history.push('/login');
+          }}
+        >
+          Back
+        </button>
+        <input className="nes-btn is-primary" id="registerBtn" type="submit" name="submit" value="Register" />
       
     </form>
   );

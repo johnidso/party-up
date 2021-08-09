@@ -2,12 +2,14 @@ import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.css';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
+import partyUpLogo from '../images/PartyUpLogo.png';
 
 function Nav() {
   const user = useSelector((store) => store.user);
   const [menu, setMenu] = useState(false);
+  const dispatch = useDispatch();
 
   // let loginLinkData = {
   //   path: '/login',
@@ -18,6 +20,10 @@ function Nav() {
   //   loginLinkData.path = '/profile';
   //   loginLinkData.text = 'Home';
   // }
+  const logOut= () => {
+    dispatch({ type: 'LOGOUT' });
+    setMenu(!menu);
+  }
 
   return (
     <div className="nav">
@@ -33,7 +39,7 @@ function Nav() {
           <Link to="/schedule">
             <button className="nes-btn is-primary" onClick={() => setMenu(!menu)}>Schedule</button>
           </Link>
-          <LogOutButton onClick={() => setMenu(!menu)} className="nes-btn is-warning" />
+          <button onClick={logOut} className="nes-btn is-warning">Log Out</button>
           <button className="nes-btn" onClick={() => setMenu(!menu)}>Close Menu</button>
         </section>
       )
@@ -42,7 +48,7 @@ function Nav() {
         <>
           <button className="nes-btn" onClick={() => setMenu(!menu)}>Menu</button>
           <Link to="/playlist">
-            <h2 className="nav-title">PartyUp!</h2>
+            <img src={partyUpLogo} />
           </Link>
           <Link to="/profile">
             <img className="nes-avatar is-rounded is-large" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/b2/b20ab773280225b221a909a73bbe5aeb1613ade6_full.jpg"></img>
@@ -56,7 +62,7 @@ function Nav() {
         <>
           
             <Link to="/login">
-            <h2 className="nav-title">PartyUp!</h2>
+              <img src={partyUpLogo} />
             </Link>
             <Link className="nes-btn navLink" to="/about">
               About

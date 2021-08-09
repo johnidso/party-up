@@ -2,7 +2,7 @@ body {
   font-family: 'Press Start 2P', cursive;
   max-width:480px;
   min-width: 375px;
-  background-image: url(https://www.adobe.com/content/dam/cc/us/en/creativecloud/design/discover/pixel-art/desktop/pixelart_P3_720x350.jpg.img.jpg);
+  background-image: url(../images/background.gif);
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;

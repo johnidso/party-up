@@ -4,6 +4,10 @@
   justify-content: space-around;
   align-items: center;
   overflow: hidden;
+  background-color: #209cee;
+  opacity: .95;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .nav a {
@@ -24,4 +28,8 @@
 
 .menu button {
   width: 220px;
+}
+
+img {
+  max-width:200px;
 }
