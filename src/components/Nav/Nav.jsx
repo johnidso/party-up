@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.css';
 import {useSelector, useDispatch} from 'react-redux';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import partyUpLogo from '../images/PartyUpLogo.png';
 
 function Nav() {

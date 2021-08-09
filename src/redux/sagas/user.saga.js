@@ -4,6 +4,7 @@ import { takeLatest, put } from '@redux-saga/core/effects';
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
   yield takeLatest('UPDATE_USER', updateUser);
+  yield takeLatest('GET_MEMBERS', getMembers);
 }
 
 // worker Saga: will be fired on "FETCH_USER" actions
@@ -35,6 +36,15 @@ function* updateUser(action) {
     yield put({type: 'FETCH_USER'});
   } catch (error) {
     console.log('Saga: error updating user profile', error);
+  }
+}
+
+function* getMembers() {
+  try{
+    const response = yield axios.get('/api/member');
+    yield put({type:'SET_MEMBERS', payload:response.data});
+  } catch (error) {
+    console.log('Saga: error getting members', error);
   }
 }
 

@@ -19,4 +19,18 @@ router.get('/playlist/:id', rejectUnauthenticated, (req, res) => {
     })
 });
 
+router.get('/', rejectUnauthenticated, (req,res) => {
+    const query = `
+    SELECT id, username, email, steam_id, discord_id FROM users;
+    `;
+    pool.query(query)
+    .then( dbResponse => {
+        res.send(dbResponse.rows);
+    })
+    .catch(err => {
+        console.log('Error getting member list', err);
+        res.sendStatus(500);
+    })
+})
+
 module.exports = router;

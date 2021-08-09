@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import './MyProfilePage.css';
 import {useDispatch, useSelector} from 'react-redux';
 
