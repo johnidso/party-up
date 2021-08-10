@@ -17,8 +17,6 @@ function PlaylistPage() {
         dispatch({type: 'DELETE_PLAYLIST_GAME', payload: action.target.id});
     }
 
-    console.log(playlist);
-
     return(
         <>
             <h1>My Playlist</h1>

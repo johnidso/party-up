@@ -14,8 +14,6 @@ function CreateEvent() {
     const emptyEvent = {attendeeId: '', eventDateTime: '', playlistId: ''};
     const [newEvent, setNewEvent] = useState(emptyEvent);
     
-    console.log(gameId);
-
     useEffect(() => {
         setNewEvent({
             ...newEvent, ['attendeeId']: attendeeId, ['playlistId']: gameId, ['eventDateTime']: selectedDate
@@ -25,7 +23,6 @@ function CreateEvent() {
     const createEvent = () => {
         console.log(attendeeId, gameId, selectedDate);
         dispatch({type:'ADD_EVENT', payload: newEvent});
-        console.log('DISPATCHING EVENT:', newEvent);
         history.push('/schedule');
     }
 
@@ -54,10 +51,10 @@ function CreateEvent() {
                     </section>
             <section className="nes-container with-title playlistItem">
                 <p className="title">In your party</p>
-                <p>{attendeeName}</p>
+                <p className="nes-text is-primary">{attendeeName}</p>
             </section>
             <button className="nes-btn">Back</button>
-            <button className="nes-btn is-primary" onClick={createEvent}>Invite!</button>
+            <button className="nes-btn is-primary" id="inviteBtn" onClick={createEvent}>Invite!</button>
         
 
             

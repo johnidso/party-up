@@ -10,9 +10,6 @@ function MyPartyPage() {
     const party = useSelector(store => store.party);
     const [searchQuery, setSearchQuery] = useState('');
 
-    console.log('PARTY:', party);
-    console.log('MEMBER', memberResults);
-
     useEffect(() => {
         dispatch({type:'GET_PARTY'});
     }, []);
@@ -35,7 +32,7 @@ function MyPartyPage() {
                     <PartyMembers key={partyMember.friend_id} userId={partyMember.friend_id} username={partyMember.username} avatar={partyMember.avatar} steam_persona={partyMember.persona} steam_url={partyMember.profile_url} discord={partyMember.discord_id} />
                 )
             })}
-            <input className="nes-input" id="searchIn" value={searchQuery} placeholder="search username" onChange={handleChange}></input>
+            <input className="nes-input" id="searchIn" value={searchQuery} autocomplete="off" placeholder="search username" onChange={handleChange}></input>
             <button className="nes-btn is-primary" id="searchBtn" onClick={searchUsers}>Search</button>
             {memberResults.map(member => {
                 return (

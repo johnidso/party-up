@@ -10,7 +10,7 @@ function SearchResult (props){
         dispatch({type:'ADD_TO_PARTY', payload: friendId});
     }
     return(
-        <section className="nes-container with-title searchResult" onClick={() => history.push(`/user/${props.userId}`)} >
+        <section className="nes-container with-title searchResult" >
             <section className="title">
                 <img className="nes-avatar is-rounded is-large avatar" src={props.avatar} />
                 <span className='nes-text is-primary profileName'>{props.username}</span>
@@ -23,7 +23,7 @@ function SearchResult (props){
                 <img className="platformIcon" src={discordIcon} />
                 <span>{props.discord}</span>
             </section>
-            
+            <button className="nes-btn is-success selectorBtn" onClick={addToParty}>+Party</button>
         </section>
     )
 }
