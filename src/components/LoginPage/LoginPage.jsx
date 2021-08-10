@@ -4,10 +4,9 @@ import { useHistory } from 'react-router';
 import './LoginPage.css';
 
 function LoginPage() {
-  const history = useHistory();
   return (
     <>
-      <section className="nes-container">
+      <section className="nes-container" id="loginContainer">
         <LoginForm />
       </section>
     </>

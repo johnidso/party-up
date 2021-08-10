@@ -29,7 +29,7 @@ function RegisterForm() {
 
   return (
     <form className="formPanel" onSubmit={registerUser}>
-      <h2>Register User</h2>
+      <h2>New Account</h2>
       {errors.registrationMessage && (
         <h3 className="alert" role="alert">
           {errors.registrationMessage}
@@ -78,6 +78,7 @@ function RegisterForm() {
             className="nes-input"
             type="text"
             name="steamId"
+            placeholder="e.g. 76560197963574882"
             value={newUser.steamId}
             required
             onChange={handleChange}
@@ -90,6 +91,7 @@ function RegisterForm() {
             className="nes-input"
             type="text"
             name="discordId"
+            placeholder="e.g. PartyUp#4321"
             value={newUser.discordId}
             required
             onChange={handleChange}
@@ -104,7 +106,7 @@ function RegisterForm() {
         >
           Back
         </button>
-        <input className="nes-btn is-primary" id="registerBtn" type="submit" name="submit" value="Register" />
+        <button className="nes-btn is-primary" id="registerBtn" type="submit" name="submit" value="Register">Submit</button>
       
     </form>
   );

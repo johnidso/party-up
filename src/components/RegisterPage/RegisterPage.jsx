@@ -1,12 +1,11 @@
 import React from 'react';
-import './RegisterPage.css';
-import { useHistory } from 'react-router-dom';
 import RegisterForm from '../RegisterForm/RegisterForm';
+import './RegisterPage.css';
 
 function RegisterPage() {
   return (
     <section className="wrapper">
-      <section className="nes-container">
+      <section className="nes-container" id="registerContainer">
         <RegisterForm />
       </section>
     </section>
