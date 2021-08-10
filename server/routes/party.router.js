@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     const query = `
-    SELECT party.friend_id, users.username, users.steam_id, users.discord_id, steam_info.profile_url, steam_info.avatar FROM party
+    SELECT party.friend_id, users.username, users.steam_id, users.discord_id, steam_info.persona, steam_info.profile_url, steam_info.avatar FROM party
     JOIN users ON party.friend_id = users.id
     JOIN steam_info ON steam_info.steam_id = users.steam_id
     WHERE party.user_id = $1;

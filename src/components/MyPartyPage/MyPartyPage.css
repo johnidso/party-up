@@ -28,3 +28,7 @@ h1 {
 .partyResult {
     margin-top: 10px;
 }
+
+span {
+    word-wrap: break-word;
+}

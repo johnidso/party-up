@@ -30,11 +30,11 @@ function LibraryList() {
 
     const handleSearch = () => {
         searchLibrary(search);
-        setSearch(emptySearch);
     }
 
     const clearSearch = () => {
         setSearchResults([]);
+        setSearch(emptySearch);
     }
 
     return(
