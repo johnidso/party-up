@@ -27,8 +27,25 @@ h1 {
 
 .partyResult {
     margin-top: 10px;
+
 }
 
 span {
     word-wrap: break-word;
+    font-size: 12px;
+    margin-left:10px;
+}
+
+.platformIcon {
+    max-width:30px;
+    margin-bottom: 10px;
+}
+
+.avatar {
+    margin-right:10px;
+    margin-top:-20px;
+}
+
+.profileName {
+    font-size:18px;
 }

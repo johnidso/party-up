@@ -39,7 +39,7 @@ function MyPartyPage() {
             <button className="nes-btn is-primary" id="searchBtn" onClick={searchUsers}>Search</button>
             {memberResults.map(member => {
                 return (
-                    <SearchResult key={member.id} userId={member.id} username={member.username} avatar={member.avatar} />
+                    <SearchResult key={member.id} userId={member.id} username={member.username} avatar={member.avatar} steam_persona={member.persona} steam_url={member.profile_url} discord={member.discord_id} />
                 )
             })}
         </>
