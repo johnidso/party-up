@@ -35,4 +35,19 @@ router.post('/', (req, res) => {
     })
 });
 
+router.delete('/:id', (req, res) => {
+    const query = `
+    DELETE FROM party
+    WHERE friend_id = $1;
+    `;
+    pool.query(query, [req.params.id])
+    .then( result => {
+        res.sendStatus(200);
+    })
+    .catch (err => {
+        console.log('Error deleting friend', err);
+        res.sendStatus(500);
+    })
+})
+
 module.exports = router;

@@ -4,6 +4,7 @@ import { takeEvery, put, call } from '@redux-saga/core/effects';
 function* partySaga() {
     yield takeEvery('GET_PARTY', getParty);
     yield takeEvery('ADD_TO_PARTY', addToParty);
+    yield takeEvery('DELETE_FROM_PARTY', deleteFromParty)
   }
 
 // GET USERS saga to handle user search requests
@@ -25,6 +26,14 @@ function* addToParty (action) {
     }
 }
 
+function* deleteFromParty (action) {
+  try {
+    yield axios.delete(`/api/party/${action.payload}`);
+    yield put({type: GET_PARTY});
+  }catch (error) {
+    console.log('Saga: error removing party member', error);
+  }
+}
 
 
   export default partySaga;

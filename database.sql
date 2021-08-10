@@ -12,22 +12,24 @@ CREATE TABLE "steam_info" (
 	"steam_id" BIGINT NOT NULL,
 	"avatar" VARCHAR(255) NOT NULL,
 	"persona" VARCHAR(50) NOT NULL,
-	"profile_url" VARCHAR(255) NOT NULL
+	"profile_url" VARCHAR(255) NOT NULL,
+	"user_id" BIGINT NOT NULL
 	);
-
+	
+	
 CREATE TABLE "playlist" (
 	"id" SERIAL PRIMARY KEY, 
 	"steam_id" BIGINT NOT NULL,
 	"game_id" BIGINT NOT NULL,
 	"image" VARCHAR(255) NOT NULL
 	);
-
+	
 CREATE TABLE "party" (
 	"id" SERIAL PRIMARY KEY,
 	"user_id" BIGINT NOT NULL, 
 	"friend_id" BIGINT NOT NULL
 	);
-
+	
 CREATE TABLE "events" (
 	"id" SERIAL PRIMARY KEY, 
 	"host_id" BIGINT NOT NULL,
@@ -35,4 +37,3 @@ CREATE TABLE "events" (
 	"event_time" TIMESTAMP WITH TIME ZONE NOT NULL, 
 	"game_id" BIGINT NOT NULL
 	);
-	
