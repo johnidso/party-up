@@ -12,7 +12,7 @@ function Nav() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-      dispatch({type:'GET_AVATAR'});
+    dispatch({type:'GET_AVATAR'});
 }, [user]);
   
   const logOut= () => {
@@ -46,7 +46,7 @@ function Nav() {
             <img src={partyUpLogo} />
           </Link>
           <Link to="/profile">
-            <img className="nes-avatar is-rounded is-large" src={avatar}></img>
+            <img className="nes-avatar is-rounded is-large" src={avatar} onError={(e)=>{e.target.onerror = null; e.target.src=partyUpLogo}}></img>
           </Link>
         </>
       

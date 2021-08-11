@@ -1,4 +1,4 @@
-const avatarReducer = (state = {}, action) => {
+const avatarReducer = (state = [], action) => {
     switch (action.type) {
       case 'SET_AVATAR':
         return action.payload;

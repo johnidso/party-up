@@ -8,23 +8,26 @@ function SearchResult (props){
     const friendId = props.userId;
     const addToParty = () => {
         dispatch({type:'ADD_TO_PARTY', payload: friendId});
+        document.getElementById(props.userId).remove();
     }
     return(
-        <section className="nes-container with-title searchResult" >
-            <section className="title">
-                <img className="nes-avatar is-rounded is-large avatar" src={props.avatar} />
-                <span className='nes-text is-primary profileName'>{props.username}</span>
+        <section>
+            <section className="nes-container with-title searchResult" id={props.userId} >
+                <section className="title">
+                    <img className="nes-avatar is-rounded is-large avatar" src={props.avatar} />
+                    <span className='nes-text is-primary profileName'>{props.username}</span>
+                </section>
+                
+                <section className="infoWrapper">
+                    <img className="platformIcon" src={steamIcon} />
+                    <span id="steamPersona">{props.steam_persona}</span>
+                    <br></br>
+                    <img className="platformIcon" src={discordIcon} />
+                    <span>{props.discord}</span>
+                </section>
+                <button className="nes-btn is-success selectorBtn" onClick={addToParty}>+Party</button>
             </section>
-            
-            <section className="infoWrapper">
-                <img className="platformIcon" src={steamIcon} />
-                <span id="steamPersona">{props.steam_persona}</span>
-                <br></br>
-                <img className="platformIcon" src={discordIcon} />
-                <span>{props.discord}</span>
             </section>
-            <button className="nes-btn is-success selectorBtn" onClick={addToParty}>+Party</button>
-        </section>
     )
 }
 

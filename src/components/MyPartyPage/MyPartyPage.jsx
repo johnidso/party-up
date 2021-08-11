@@ -25,7 +25,7 @@ function MyPartyPage() {
     }
 
     return(
-        <>
+        <section className="contentWrapper">
             <h1>My Party</h1>
             {party.map(partyMember => {
                 return (
@@ -36,10 +36,10 @@ function MyPartyPage() {
             <button className="nes-btn is-primary" id="searchBtn" onClick={searchUsers}>Search</button>
             {memberResults.map(member => {
                 return (
-                    <SearchResult key={member.id} userId={member.id} username={member.username} avatar={member.avatar} steam_persona={member.persona} steam_url={member.profile_url} discord={member.discord_id} />
+                    <SearchResult key={member.id} memberResults={memberResults} userId={member.id} username={member.username} avatar={member.avatar} steam_persona={member.persona} steam_url={member.profile_url} discord={member.discord_id} />
                 )
             })}
-        </>
+        </section>
     )
 }
 

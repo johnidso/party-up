@@ -21,7 +21,7 @@ function MyProfilePage() {
   }
 
   return (
-    <section className="container">
+    <section className="contentWrapper">
       <h1>{user.username}'s Profile</h1>
       { (editing) ? (
         <section id="editingView">

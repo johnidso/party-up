@@ -15,13 +15,11 @@ function UserPage () {
         dispatch({type:'GET_USER_BY_ID', payload: id})
     }, []);
 
-    console.log(user);
-
     return (
         <section className="contentWrapper">
-            <section id="greeting" class="message-list">
+            <section id="greeting" className="message-list">
                 <img id="greetingImg" className="nes-avatar is-rounded is-large" src={user.avatar} />
-                <section id="greetingMessage" class="nes-balloon from-left">
+                <section id="greetingMessage" className="nes-balloon from-left">
                     <p>Hello there!</p>
                 </section>
             </section>
