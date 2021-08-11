@@ -19,7 +19,7 @@ import MyPartyPage from '../MyPartyPage/MyPartyPage';
 import UserPage from '../UserPage/UserPage';
 import CreateEvent from '../CreateEvent/CreateEvent';
 import MySchedule from '../MySchedule/MySchedule';
-
+import Footer from '../Footer/Footer';
 
 function App() {
   const dispatch = useDispatch();
@@ -127,6 +127,7 @@ function App() {
             <h1>404</h1>
           </Route>
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

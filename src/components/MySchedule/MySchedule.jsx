@@ -28,7 +28,7 @@ function MySchedule() {
     }
 
     return(
-        <>
+        <section className="contentWrapper">
             <h1>Upcoming Events</h1>
             {events.map(event => {
                 let attendee = findUsername(event.attendee_id);
@@ -38,7 +38,7 @@ function MySchedule() {
                     <p>with {attendee}</p>
                     <button className="nes-btn is-error eventBtn" id={event.id} onClick={deleteEvent} >Cancel</button>
                     <section 
-                        className="nes-container with-title playlistItem" 
+                        className="nes-container with-title scheduleItem" 
                         style={{ 
                             backgroundImage: `url("http://media.steampowered.com/steamcommunity/public/images/apps/${event.game_id}/${event.image}.jpg")` 
                             }}
@@ -47,7 +47,7 @@ function MySchedule() {
                 </section>
                 )
             })}
-        </>
+        </section>
     )
 }
 

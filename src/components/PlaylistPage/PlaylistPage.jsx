@@ -18,8 +18,8 @@ function PlaylistPage() {
     }
 
     return(
-        <>
-            <h1>My Playlist</h1>
+        <section className="contentWrapper">
+            <h1>I'm Playing</h1>
             {(playlist.length===0) &&
                 <section className="nes-container" id="emptyPlaylistMessage">
                     Add games to show your friends what you're playing!
@@ -40,7 +40,7 @@ function PlaylistPage() {
             })}
 
             <LibraryList />
-        </>
+        </section>
     )
 }
 

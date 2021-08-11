@@ -18,7 +18,7 @@ function UserPage () {
     console.log(user);
 
     return (
-        <>
+        <section className="contentWrapper">
             <section id="greeting" class="message-list">
                 <img id="greetingImg" className="nes-avatar is-rounded is-large" src={user.avatar} />
                 <section id="greetingMessage" class="nes-balloon from-left">
@@ -39,7 +39,7 @@ function UserPage () {
                     </section>
                 )
             })}
-        </>
+        </section>
     )
 }
 

@@ -46,7 +46,7 @@ function LibraryList() {
             <button className="nes-btn" id="clearButtonLibrary" onClick={clearSearch}>Clear</button>
             {searchResults.map(game => {                
                 return (
-                    <LibraryItem key={game.appid} gameId={game.appid} img={game.img_logo_url} />
+                    <LibraryItem key={game.appid} gameId={game.appid} img={game.img_logo_url} clearSearch={clearSearch} />
                 )                
             })}
             </section>

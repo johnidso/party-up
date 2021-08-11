@@ -1,1 +1,10 @@
 
+.footer {
+    font-size:12px;
+    display:block;
+    clear:both;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+

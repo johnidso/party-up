@@ -1,5 +1,6 @@
 .eventContainer {
     position:relative;
+    margin-bottom:16px;
 }
 
 .eventContainer button {
@@ -7,4 +8,18 @@
     top:0;
     right:0;
     font-size:12px;
+}
+
+.scheduleItem {
+    padding: 0;
+    text-align:center;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    image-rendering: pixelated;
+    min-width: 224px;
+    min-height: 100px;
+    position:relative;
+    margin-bottom:8px;
+    margin-top:8px;
 }

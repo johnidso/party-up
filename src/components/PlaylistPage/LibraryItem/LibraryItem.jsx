@@ -1,4 +1,3 @@
-import './LibraryItem.css';
 import { useDispatch } from 'react-redux';
 
 function LibraryItem(props) {
@@ -8,10 +7,11 @@ function LibraryItem(props) {
     const addToPlaylist = () => {
         console.log(props);
         dispatch({type:'ADD_PLAYLIST_GAME',payload: props})
+        props.clearSearch();
     }
     return(
         <section
-            className="nes-container libraryItem"
+            className="nes-container playlistItem"
             style={{ 
                 backgroundImage: `url("http://media.steampowered.com/steamcommunity/public/images/apps/${props.gameId}/${props.img}.jpg")` 
               }}

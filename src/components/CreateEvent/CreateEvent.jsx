@@ -30,10 +30,10 @@ function CreateEvent() {
     
 
     return(
-        <>
+        <section className="contentWrapper">
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 
-            <h3>New Event!</h3>
+            <h1>New Event!</h1>
             <section className="nes-container with-title">
                 <p className="title" onClick= {()=>console.log(newEvent)}>Game Time</p>
                 <DateTimePicker
@@ -62,7 +62,7 @@ function CreateEvent() {
 
             
             </MuiPickersUtilsProvider>
-        </>
+        </section>
     )
 }
 
