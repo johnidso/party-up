@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { parseISO } from "date-fns/fp";
+import './MySchedule.css';
 
 function MySchedule() {
     const dispatch=useDispatch();
@@ -21,15 +22,21 @@ function MySchedule() {
         }
     }
 
+    const deleteEvent = (event) => {
+        event.preventDefault();
+        dispatch({type:'DELETE_EVENT', payload: event.target.id});
+    }
+
     return(
         <>
             <h1>Upcoming Events</h1>
             {events.map(event => {
                 let attendee = findUsername(event.attendee_id);
                 return(
-                <section key={event.id} className="nes-container">
-                    <span className="nes-text is-primary">{format(parseISO(event.event_time), 'h:maa, MMM d')}</span>
+                <section key={event.id} className="nes-container eventContainer">
+                    <span className="nes-text is-primary">{format(parseISO(event.event_time), 'h:mmaa, MMM d')}</span>
                     <p>with {attendee}</p>
+                    <button className="nes-btn is-error eventBtn" id={event.id} onClick={deleteEvent} >Cancel</button>
                     <section 
                         className="nes-container with-title playlistItem" 
                         style={{ 

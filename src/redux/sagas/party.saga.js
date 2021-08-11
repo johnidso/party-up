@@ -29,7 +29,7 @@ function* addToParty (action) {
 function* deleteFromParty (action) {
   try {
     yield axios.delete(`/api/party/${action.payload}`);
-    yield put({type: GET_PARTY});
+    yield put({type: 'GET_PARTY'});
   }catch (error) {
     console.log('Saga: error removing party member', error);
   }

@@ -26,6 +26,17 @@ h1 {
 }
 
 .partyResult {
+    position:relative;
+}
+
+.partyResult button {
+    position:absolute;
+    top:0;
+    right:0;
+    font-size:12px;
+}
+
+.partyResult {
     margin-top: 10px;
 
 }

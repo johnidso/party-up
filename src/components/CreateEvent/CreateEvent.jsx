@@ -9,7 +9,8 @@ import { useDispatch } from 'react-redux';
 function CreateEvent() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const [selectedDate, handleDateChange] = useState(new Date());
+    const date = new Date();
+    const [selectedDate, setSelectedDate] = useState(date);
     const { attendeeId, attendeeName, gameId, gameImg } = useParams();
     const emptyEvent = {attendeeId: '', eventDateTime: '', playlistId: ''};
     const [newEvent, setNewEvent] = useState(emptyEvent);
@@ -18,7 +19,7 @@ function CreateEvent() {
         setNewEvent({
             ...newEvent, ['attendeeId']: attendeeId, ['playlistId']: gameId, ['eventDateTime']: selectedDate
         });
-    }, [handleDateChange]);
+    }, [selectedDate]);
 
     const createEvent = () => {
         console.log(attendeeId, gameId, selectedDate);
@@ -26,19 +27,21 @@ function CreateEvent() {
         history.push('/schedule');
     }
 
+    
+
     return(
         <>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 
             <h3>New Event!</h3>
             <section className="nes-container with-title">
-                <p className="title">Game Time</p>
+                <p className="title" onClick= {()=>console.log(newEvent)}>Game Time</p>
                 <DateTimePicker
                     disablePast
                     className="datePicker"
                     inputVariant="standard"
                     value={selectedDate}
-                    onChange={handleDateChange}
+                    onChange={setSelectedDate}
                 />
             </section>
             <section
@@ -53,7 +56,7 @@ function CreateEvent() {
                 <p className="title">In your party</p>
                 <p className="nes-text is-primary">{attendeeName}</p>
             </section>
-            <button className="nes-btn">Back</button>
+            <button className="nes-btn" onClick={()=>history.goBack()}>Back</button>
             <button className="nes-btn is-primary" id="inviteBtn" onClick={createEvent}>Invite!</button>
         
 
