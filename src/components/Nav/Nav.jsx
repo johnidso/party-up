@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.css';
 import {useSelector, useDispatch} from 'react-redux';
@@ -7,18 +7,14 @@ import partyUpLogo from '../images/PartyUpLogo.png';
 
 function Nav() {
   const user = useSelector((store) => store.user);
+  const avatar = useSelector(store=> store.avatar);
   const [menu, setMenu] = useState(false);
   const dispatch = useDispatch();
 
-  // let loginLinkData = {
-  //   path: '/login',
-  //   text: 'Login / Register',
-  // };
-
-  // if (user.id != null) {
-  //   loginLinkData.path = '/profile';
-  //   loginLinkData.text = 'Home';
-  // }
+  useEffect(() => {
+      dispatch({type:'GET_AVATAR'});
+}, [user]);
+  
   const logOut= () => {
     dispatch({ type: 'LOGOUT' });
     setMenu(!menu);
@@ -50,7 +46,7 @@ function Nav() {
             <img src={partyUpLogo} />
           </Link>
           <Link to="/profile">
-            <img className="nes-avatar is-rounded is-large" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/b2/b20ab773280225b221a909a73bbe5aeb1613ade6_full.jpg"></img>
+            <img className="nes-avatar is-rounded is-large" src={avatar}></img>
           </Link>
         </>
       

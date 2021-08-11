@@ -49,9 +49,25 @@ router.get('/byId/:id', rejectUnauthenticated, (req, res) => {
   })
   .catch( err => {
     console.log('Error returning other user', err);
-    sendStatus(500);
+    res.sendStatus(500);
   })
 });
+
+router.get('/avatar', rejectUnauthenticated, (req,res) => {
+  const user = req.user.id;
+  const query = `
+  SELECT * FROM steam_info
+  WHERE user_id = $1;
+  `;
+  pool.query(query, [user])
+  .then( dbResponse => {
+    res.send(dbResponse.rows);
+  })
+  .catch(err => {
+    console.log('Error getting user avatar', err);
+    res.sendStatus(500);
+  })
+})
 
 
 // Handles POST request with new user data

@@ -5,6 +5,7 @@ function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
   yield takeLatest('UPDATE_USER', updateUser);
   yield takeLatest('GET_MEMBERS', getMembers);
+  yield takeLatest('GET_AVATAR', getAvatar);
 }
 
 // worker Saga: will be fired on "FETCH_USER" actions
@@ -45,6 +46,15 @@ function* getMembers() {
     yield put({type:'SET_MEMBERS', payload:response.data});
   } catch (error) {
     console.log('Saga: error getting members', error);
+  }
+}
+
+function* getAvatar() {
+  try {
+    const response = yield axios.get(`/api/user/avatar`) 
+    yield put({type:'SET_AVATAR', payload: response.data[0].avatar})
+  } catch (error) {
+    console.log('Saga: error getting user avatar', error);
   }
 }
 

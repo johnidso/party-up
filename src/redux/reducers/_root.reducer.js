@@ -9,6 +9,7 @@ import otherUser from './otherUser.reducer';
 import memberPlaylist from './memberPlaylist.reducer';
 import events from './events.reducer';
 import members from './member.reducer';
+import avatar from './avatar.reducer';
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
   memberPlaylist, // contains a member's playlist detail
   events, // contains the users' events
   members, // contains a list of members
+  avatar, // contains user avatar for nav
 });
 
 export default rootReducer;
