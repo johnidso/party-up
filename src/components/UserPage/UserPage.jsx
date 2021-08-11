@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import './UserPage.css';
+import steamIcon from '../MyPartyPage/images/steamIcon.png';
+import discordIcon from '../MyPartyPage/images/discordIcon.png';
 
 
 function UserPage () {
@@ -10,6 +12,8 @@ function UserPage () {
     const user = useSelector(store => store.otherUser);
     const playlist = useSelector(store => store.memberPlaylist)
     const history = useHistory();
+
+    console.log(user);
 
     useEffect(() => {
         dispatch({type:'GET_USER_BY_ID', payload: id})
@@ -37,6 +41,17 @@ function UserPage () {
                     </section>
                 )
             })}
+                <section className="nes-container with-title is-centered infoWrapper">
+                    <p className='title'>Accounts</p>
+                    <a href={user.profile_url}>
+                        <img className="platformIcon" src={steamIcon} />
+                        <span id="steamPersona">{user.persona}</span>
+                    </a>
+                    
+                    <br></br>
+                    <img className="platformIcon" src={discordIcon} />
+                    <span>{user.discord_id}</span>
+                </section>
         </section>
     )
 }
