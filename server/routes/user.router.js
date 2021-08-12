@@ -117,7 +117,7 @@ router.post('/register', (req, res, next) => {
     
 });
 
-router.put('/', (req, res, next) => {
+router.put('/',  rejectUnauthenticated, (req, res, next) => {
   const username = req.body.username;
   const email = req.body.email;
   const steam_id = req.body.steam_id;

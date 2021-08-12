@@ -22,7 +22,6 @@ function CreateEvent() {
     }, [selectedDate]);
 
     const createEvent = () => {
-        console.log(attendeeId, gameId, selectedDate);
         dispatch({type:'ADD_EVENT', payload: newEvent});
         history.push('/schedule');
     }

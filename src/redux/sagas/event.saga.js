@@ -19,7 +19,6 @@ function* getEvents() {
 
 function* addEvent (action) {
     try {
-        console.log('Saga: posting event', action.payload);
         yield call(axios.post, '/api/event', action.payload);
         yield put({type:'GET_EVENTS'});
     } catch (error){

@@ -16,7 +16,7 @@ function MySchedule() {
 
     const findUsername = (searchId) => {
         for(let member of members){
-            if (member.id = searchId){
+            if (member.id == searchId){
                 return member.username;
             }
         }

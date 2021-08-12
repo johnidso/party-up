@@ -13,8 +13,6 @@ function UserPage () {
     const playlist = useSelector(store => store.memberPlaylist)
     const history = useHistory();
 
-    console.log(user);
-
     useEffect(() => {
         dispatch({type:'GET_USER_BY_ID', payload: id})
     }, []);
