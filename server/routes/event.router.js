@@ -1,9 +1,10 @@
 const express = require('express');
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 const pool = require('../modules/pool');
 const router = express.Router();
 
 //Get events for current user
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     const query = `
     SELECT events.id, events.host_id, events.attendee_id, events.event_time, events.game_id, playlist.image FROM events
     JOIN playlist ON events.game_id = playlist.game_id
@@ -21,7 +22,7 @@ router.get('/', (req, res) => {
 });
 
 // Add a new event with another user
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
     const query = `
     INSERT INTO events (host_id, attendee_id, event_time, game_id)
     VALUES ($1, $2, $3, $4);
@@ -30,12 +31,12 @@ router.post('/', (req, res) => {
     .then(result => {
         res.sendStatus(201);
     })
-    .catch(err => {
+    .catch(err => { 
         console.log('Error posting new event', err);
     })
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
     const query = `
     DELETE FROM events
     WHERE id = $1;

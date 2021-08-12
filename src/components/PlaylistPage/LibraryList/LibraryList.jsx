@@ -54,7 +54,7 @@ function LibraryList() {
             {library.map(game => {
                 if (game.playtime_2weeks) {
                     return (
-                        <LibraryItem key={game.appid} gameId={game.appid} img={game.img_logo_url} />
+                        <LibraryItem key={game.appid} gameId={game.appid} img={game.img_logo_url} clearSearch={clearSearch} />
                     )
                 } 
             })}

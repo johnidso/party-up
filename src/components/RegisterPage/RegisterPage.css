@@ -2,3 +2,13 @@
     background-color:transparent;
     border-color: transparent;
 }
+
+#partyUpHelper {
+    margin-top:75px;
+}
+
+.greeting {
+    font-size: 12px;
+    float:right;
+    max-width:75%;
+}

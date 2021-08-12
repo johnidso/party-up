@@ -1,8 +1,9 @@
 const express = require('express');
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     const query = `
     SELECT party.friend_id, users.username, users.steam_id, users.discord_id, steam_info.persona, steam_info.profile_url, steam_info.avatar FROM party
     JOIN users ON party.friend_id = users.id
@@ -19,7 +20,7 @@ router.get('/', (req, res) => {
     })
 });
 
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
     console.log('In post,', req.body.id);
     const query = `
     INSERT INTO party (user_id, friend_id)
@@ -35,7 +36,7 @@ router.post('/', (req, res) => {
     })
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
     const query = `
     DELETE FROM party
     WHERE friend_id = $1;
