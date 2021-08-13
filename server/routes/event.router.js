@@ -8,7 +8,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     const query = `
     SELECT events.id, events.host_id, events.attendee_id, events.event_time, events.game_id, playlist.image FROM events
     JOIN playlist ON events.game_id = playlist.game_id
-    WHERE host_id = $1
+    WHERE host_id = $1 OR attendee_id=$1
     GROUP BY events.id, playlist.image;
     `;
     pool.query(query, [req.user.id])

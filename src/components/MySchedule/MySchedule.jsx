@@ -7,6 +7,7 @@ function MySchedule() {
     const dispatch=useDispatch();
     const events = useSelector(store => store.events);
     const members = useSelector(store => store.members);
+    const user = useSelector(store => store.user);
     const {format} = require('date-fns');
 
     useEffect(() => {
@@ -14,12 +15,21 @@ function MySchedule() {
         dispatch({type:'GET_MEMBERS'});
     }, []);
 
-    const findUsername = (searchId) => {
-        for(let member of members){
-            if (member.id == searchId){
-                return member.username;
+    const findUsername = (attendeeId, hostId) => {
+        if (attendeeId == user.id) {
+            for(let member of members){
+                if (member.id == hostId){
+                    return member.username;
+                }
+            }
+        } else {
+            for(let member of members){
+                if (member.id == attendeeId){
+                    return member.username;
+                }
             }
         }
+        
     }
 
     const deleteEvent = (event) => {
@@ -31,7 +41,7 @@ function MySchedule() {
         <section className="contentWrapper">
             <h1>Upcoming Events</h1>
             {events.map(event => {
-                let attendee = findUsername(event.attendee_id);
+                let attendee = findUsername(event.attendee_id, event.host_id);
                 return(
                 <section key={event.id} className="nes-container eventContainer">
                     <span className="nes-text is-primary">{format(parseISO(event.event_time), 'h:mmaa, MMM d')}</span>

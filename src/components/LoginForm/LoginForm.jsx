@@ -41,6 +41,7 @@ function LoginForm() {
             className="nes-input"
             type="text"
             name="username"
+            autoComplete="off"
             required
             value={username}
             onChange={(event) => setUsername(event.target.value)}
