@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
+// component used to display library items across search and recently played 
 function LibraryItem(props) {
     const dispatch = useDispatch();
     const [isOnPlaylist, setIsOnPlaylist] = useState(false);

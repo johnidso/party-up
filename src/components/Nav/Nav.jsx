@@ -59,9 +59,9 @@ function Nav() {
             <Link to="/login">
               <img src={partyUpLogo} />
             </Link>
-            <Link className="nes-btn navLink" to="/about">
+            {/* <Link className="nes-btn navLink" to="/about">
               About
-            </Link>
+            </Link> */}
           
         </>
       }

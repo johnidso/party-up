@@ -3,7 +3,7 @@ import { useState } from "react";
 import LibraryItem from "../LibraryItem/LibraryItem";
 import './LibraryList.css';
 
-
+// displays the steam library search and recently played games 
 function LibraryList() {
     const library = useSelector(store => store.library);
     const [search, setSearch] = useState('');

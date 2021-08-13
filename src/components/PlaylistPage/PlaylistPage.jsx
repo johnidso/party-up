@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import LibraryList from "./LibraryList/LibraryList";
 import './PlaylistPage.css';
 
+// displays the playlist, library search, and recently played library items of the user. 
 function PlaylistPage() {
     const dispatch = useDispatch();
     const playlist = useSelector(store => store.playlist);
