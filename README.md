@@ -1,14 +1,14 @@
-#Party Up!
+# Party Up!
 
 Party Up! is a mobile web app designed to help friends connect around the games they love. Keeping in touch with friends in a remote setting has become a significant part of our world. Party Up! creates an easy way to view what games your friends are currently enjoying and quickly set up a time to play together. 
 
 **Party Up was designed mobile first and is currently only optimized for mobile devices. For the desired experience, please view Party Up in a iPhone 8-sized mobile frame.**
 
-##Setup
+## Setup
 
 Party Up can be easily run locally through setting up a database called `party_up` and running the SQL queries contained in `database.sql`. Heroku deployment will be available soon. 
 
-##Features
+## Features
 
 Party Up's user experience revolves around the following 
 1. Setting up a profile and linking your steam account through providing a valid steam id
