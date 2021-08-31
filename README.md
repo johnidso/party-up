@@ -4,10 +4,6 @@ Party Up! is a mobile web app designed to help friends connect around the games 
 
 **Party Up was designed mobile first and is currently only optimized for mobile devices. For the desired experience, please view Party Up in a iPhone 8-sized mobile frame.**
 
-## Setup
-
-Party Up can be easily run locally through setting up a database called `party_up` and running the SQL queries contained in `database.sql`. Heroku deployment will be available soon. 
-
 ## Features
 
 Party Up's user experience revolves around the following 
